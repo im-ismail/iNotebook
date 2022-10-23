@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+/* Styling home component */
+  /* Styling add note */
+.note-form {
+  width: 80%;
+  margin: 10px auto 30px auto;
+  padding: 20px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+}
+.note-form form {
+  width: 500px;
+  margin: 0 auto 10px auto;
+}
+.note-form form h2{
+  margin-bottom: 5px;
+}
+.note-form input, .note-form textarea{
+  margin: 3px 0;
+  width: 90%;
+  padding: 10px 5%;
+  border: 1px solid grey;
+  border-radius: 4px;
+}
+input:focus,textarea:focus{
+  outline: none;
+  border-color: #1b74e4;
+  box-shadow: 0 0 0 2px #e7f3ff;
+}
+.btn{
+  cursor: pointer;
+  width: 100%;
+  background-color: rgb(104, 104, 252);
+  color: #fff;
+  border: none;
+  padding: 8px 0;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+  /* Add note end */
+  /* Notes start */
+.notes{
+  width: 80%;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgba(9, 17, 41, 0.1);
+}
+.notes h2{
+  padding: 10px 20px;
+}
+.notes-container{
+  width: 95%;
+  margin: auto;
+  padding: 10px;
+  padding-bottom: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-gap: 10px;
+}
+.note{
+  background-color: #f0f2f5;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(133, 132, 132, 0.1), 0 8px 16px rgba(49, 79, 62, 0.1);
+  display: flex;
+  justify-content: space-between;
+}
+.fa-pen-to-square{
+  margin: 10px 0 10px 10px;
+  color: #1b74e4;
+  cursor: pointer;
+}
+.fa-trash{
+  margin: 10px 0 10px 10px;
+  color: rgb(227, 16, 16);
+  cursor: pointer;
+}
+.note-title,.note-desc{
+  margin: 5px 0;
+}
+  /* Notes end */
+/* Home end */
+
+/* Responsive design for mobile, tablet and big screen */
+@media only screen and (max-width: 700px) {
+  .note-form{
+    width: 90%;
+  }
+  .notes-container{
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .notes{
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-item {
+    margin: 0 10px;
+  }
+  .note-form {
+    width: 95%;
+  }
+  .note-form form {
+    width: 90%;
+  }
+  .notes{
+    width: 95%;
+  }
+}
+/* Responsive end */
