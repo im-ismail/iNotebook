@@ -29,7 +29,6 @@ const NoteState = (props) => {
         }
     };
     useEffect(() => {
-        console.log('ntue');
         verifyUser();
     }, []);
     // Fetching notes for the first time
@@ -75,6 +74,7 @@ const NoteState = (props) => {
             showAlert('Note has been added succesfully', 'success');
         } catch (error) {
             console.log(error);
+            showAlert('Some error occured, failed to add you note', 'danger');
         };
     };
     // Editing note both on frontend and database
@@ -105,6 +105,7 @@ const NoteState = (props) => {
             showAlert('Note has been edited succesfully', 'success');
         } catch (error) {
             console.log(error);
+            showAlert('Some error occured, failed to edit your note', 'danger');
         };
     };
     // Deleting note both from database and frontend
@@ -128,6 +129,7 @@ const NoteState = (props) => {
             showAlert('Note has been deleted succesfully', 'danger');
         } catch (error) {
             console.log(error);
+            showAlert('Some error occured, failed to delete your note', 'danger');
         };
     };
 

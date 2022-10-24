@@ -29,7 +29,12 @@ const Logout = ({ showAlert }) => {
         };
     };
     useEffect(() => {
-        logout();
+        const confirm = window.confirm('Confirm by clicking OK to logout.');
+        if (confirm) {
+            logout();
+        }else(
+            navigate(-1)
+        );
     }, []);
 
 

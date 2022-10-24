@@ -60,7 +60,7 @@ const Home = ({ showAlert }) => {
               <input type='email' name='email' placeholder='Enter your email address' required onChange={handleChange} ></input>
             </div>
             <div>
-              <input type='password' name='password' placeholder='Enter password' required onChange={handleChange} ></input>
+              <input type='password' name='password' placeholder='Enter password' required minLength={6} onChange={handleChange} ></input>
             </div>
             <div>
               <button type='submit' className='login-btn'>Log in</button>

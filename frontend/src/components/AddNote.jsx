@@ -30,8 +30,8 @@ const AddNote = () => {
             <div className='note-form'>
                 <form onSubmit={handleSubmit}>
                     <h3 style={{margin:'-6px 0 8px 0'}}>Add a new note to your collection</h3>
-                    <input type="text" placeholder="Enter note title" name="title" required value={title} onChange={handleChange}></input>
-                    <input type="text" placeholder="Enter note tag" name="tag" required value={tag} onChange={handleChange}></input>
+                    <input type="text" placeholder="Enter note title" name="title" required minLength={3} value={title} onChange={handleChange}></input>
+                    <input type="text" placeholder="Enter note tag" name="tag" required minLength={3} value={tag} onChange={handleChange}></input>
                     <div><textarea rows="3" placeholder="Enter note description" name="description" required value={description} onChange={handleChange}></textarea></div>
                     <button className='btn'>Add Note</button>
                 </form>

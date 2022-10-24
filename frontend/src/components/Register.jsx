@@ -54,16 +54,16 @@ const Home = ({ showAlert }) => {
 					</h4>
 					<form onSubmit={handleSubmit}>
 						<div>
-							<input type='text' name='name' placeholder='Enter your name' required onChange={handleChange}></input>
+							<input type='text' name='name' placeholder='Enter your name' required minLength={3} onChange={handleChange}></input>
 						</div>
 						<div>
 							<input type='email' name='email' placeholder='Enter your email address' required onChange={handleChange} ></input>
 						</div>
 						<div>
-							<input type='text' name='dob' placeholder='Enter date of birth DD/MM/YYYY' required onChange={handleChange} ></input>
+							<input type='text' name='dob' placeholder='Enter date of birth DD/MM/YYYY' required minLength={10} onChange={handleChange} ></input>
 						</div>
 						<div>
-							<input type='password' name='password' placeholder='Enter password' required onChange={handleChange} ></input>
+							<input type='password' name='password' placeholder='Enter password' required minLength={6} onChange={handleChange} ></input>
 						</div>
 						<div>
 							<button type='submit' className='login-btn'>Log in</button>
