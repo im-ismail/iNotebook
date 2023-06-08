@@ -1,6 +1,6 @@
 import React, { useRef, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import '../CSS/navbar.css';
+import '../styles/navbar.css';
 import noteContext from '../context/NoteContext';
 
 const Navbar = () => {

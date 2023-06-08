@@ -9,6 +9,8 @@ import Alert from './components/Alert';
 import Login from './components/Login';
 import Register from './components/Register';
 import Logout from './components/Logout';
+import Identify from './components/Identify';
+import ResetPassword from './components/ResetPassword';
 function App() {
 
   // This is for showing alert
@@ -34,6 +36,8 @@ function App() {
           <Route path='/login' element={<Login showAlert={showAlert} />} />
           <Route path='/register' element={<Register showAlert={showAlert} />} />
           <Route path='/logout' element={<Logout showAlert={showAlert} />} />
+          <Route path='/identify' element={<Identify showAlert={showAlert} />} />
+          <Route path='/reset-password' element={<ResetPassword showAlert={showAlert} />} />
         </Routes>
       </NoteState>
     </BrowserRouter>

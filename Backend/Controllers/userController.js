@@ -1,4 +1,4 @@
-const User = require('../Models/userSchema');
+const User = require('../models/userSchema');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
@@ -113,4 +113,50 @@ const verify = async (req, res) => {
       }).then(user => res.json(user));
 */
 
-module.exports = { getHome, postRegister, postLogin, getUser, logout, verify };
+// Verifying user identity
+const identifyUser = async (req, res) => {
+    try {
+        const { email, dob } = req.body;
+        const isUserExist = await User.findOne({ email });
+        if (!isUserExist) {
+            return res.status(401).send("User doesn't exist");
+        };
+        if (isUserExist.dob !== dob) {
+            console.log(isUserExist.dob, dob);
+            return res.status(401).send('Invalid dob provided');
+        };
+        const token = jwt.sign({ id: isUserExist._id }, process.env.SECRET_KEY, {
+            expiresIn: 60 * 2
+        });
+        res.cookie('resetToken', token, {
+            httpOnly: true,
+            maxAge: 60000 * 2
+        });
+        res.status(200).send('User identified');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error.message);
+    };
+};
+
+// resetting password
+const resetPassword = async (req, res) => {
+    try {
+        const token = req.cookies.resetToken;
+        if (!token) {
+            return res.status(404).send('Authorization failed, token not found');
+        };
+        const verifiedToken = jwt.verify(token, process.env.SECRET_KEY);
+        const id = verifiedToken.id;
+        const hash = bcrypt.hashSync(req.body.password, salt);
+        // updateOne doesn't return object whereas findOneAndUpdate/findByIdAndUpdate returns updated object
+        await User.updateOne({ _id: id }, { $set: { password: hash } });
+        res.clearCookie('resetToken');
+        res.status(200).send('Password reset successful');
+    } catch (error) {
+        console.log(error);
+        res.status(500).send(error.message);
+    };
+};
+
+module.exports = { getHome, postRegister, postLogin, getUser, logout, verify, identifyUser, resetPassword };

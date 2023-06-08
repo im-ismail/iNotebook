@@ -3,7 +3,7 @@ import noteContext from '../context/NoteContext';
 import { useNavigate } from 'react-router-dom';
 
 const Logout = ({ showAlert }) => {
-    const { isLoggedIn, setIsLoggedIn } = useContext(noteContext);
+    const { setIsLoggedIn, setNotes } = useContext(noteContext);
     const navigate = useNavigate();
 
     const logout = async () => {
@@ -16,11 +16,12 @@ const Logout = ({ showAlert }) => {
                 credentials: 'include'
             });
             const text = await res.text();
-            if(!res.ok){
+            if (!res.ok) {
                 throw new Error(text);
             }
             showAlert(text, 'success');
             setIsLoggedIn(false);
+            setNotes([]);
             navigate('/login');
         } catch (error) {
             console.log(error);
@@ -32,11 +33,10 @@ const Logout = ({ showAlert }) => {
         const confirm = window.confirm('Confirm by clicking OK to logout.');
         if (confirm) {
             logout();
-        }else(
+        } else (
             navigate(-1)
         );
     }, []);
-
 
     return (
         <div></div>

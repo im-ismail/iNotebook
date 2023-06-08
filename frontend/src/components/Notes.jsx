@@ -2,7 +2,7 @@ import React, { useContext, useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import noteContext from '../context/NoteContext';
 import NoteItem from './NoteItem';
-import '../CSS/modal.css';
+import '../styles/modal.css';
 
 const Notes = () => {
 
@@ -19,11 +19,11 @@ const Notes = () => {
   useEffect(() => {
     if (isLoggedIn) {
       fetchNotes();
-    }else{
+    } else {
       navigate('/login');
     };
   }, []);
-  
+
   // Toggling modal popup box
   const ref = useRef();
   const handlePopup = (note) => {

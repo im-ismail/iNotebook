@@ -1,4 +1,4 @@
-const Notes = require('../Models/notesSchema');
+const Notes = require('../models/notesSchema');
 
 // Creating or adding new notes related to specific useer
 const createNote = async (req, res) => {

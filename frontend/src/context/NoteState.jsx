@@ -6,6 +6,7 @@ const NoteState = (props) => {
     // States
     const [notes, setNotes] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isIdentified, setIsIdentified] = useState(false);
     const { showAlert } = props;
 
     // Checking if user verified or not
@@ -134,7 +135,7 @@ const NoteState = (props) => {
     };
 
     return (
-        <noteContext.Provider value={{ notes, fetchNotes, addNote, editNote, deleteNote, isLoggedIn, setIsLoggedIn }}>
+        <noteContext.Provider value={{ notes, fetchNotes, addNote, editNote, deleteNote, isLoggedIn, setIsLoggedIn, setNotes, isIdentified, setIsIdentified }}>
             {props.children}
         </noteContext.Provider>
     )

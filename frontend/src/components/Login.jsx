@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import '../CSS/login.css';
+import '../styles/login.css';
 import noteContext from '../context/NoteContext';
 
 const Home = ({ showAlert }) => {
@@ -32,7 +32,7 @@ const Home = ({ showAlert }) => {
         credentials: 'include',
         body: JSON.stringify(userData)
       });
-      const text = await res.text()
+      const text = await res.text();
       if (res.status !== 200) {
         throw new Error(text);
       };
@@ -66,7 +66,7 @@ const Home = ({ showAlert }) => {
               <button type='submit' className='login-btn'>Log in</button>
             </div>
           </form>
-          <NavLink to='#' className='link'>Forgotten password?</NavLink>
+          <NavLink to='/identify' className='link'>Forgotten password?</NavLink>
           <div className='line'></div>
           <div>
             <NavLink to='/register' className='sign-btn'>Create new account</NavLink>
