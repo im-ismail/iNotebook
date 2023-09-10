@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import noteContext from './NoteContext';
 
 const NoteState = (props) => {
-    const host = 'http://localhost:5000';
+    const server = process.env.REACT_APP_SERVER_URL;
     // States
     const [notes, setNotes] = useState([]);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,7 +12,7 @@ const NoteState = (props) => {
     // Checking if user verified or not
     const verifyUser = async () => {
         try {
-            const res = await fetch(`${host}/api/user/verify`, {
+            const res = await fetch(`${server}/api/user/verify`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ const NoteState = (props) => {
     // Fetching notes for the first time
     const fetchNotes = async () => {
         try {
-            const res = await fetch(`${host}/api/notes/get`, {
+            const res = await fetch(`${server}/api/notes/get`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ const NoteState = (props) => {
     // Adding a new note on database as well as frontend
     const addNote = async (newNote) => {
         try {
-            const res = await fetch(`${host}/api/notes/create`, {
+            const res = await fetch(`${server}/api/notes/create`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -81,7 +81,7 @@ const NoteState = (props) => {
     // Editing note both on frontend and database
     const editNote = async (editedNote) => {
         try {
-            const res = await fetch(`${host}/api/notes/update/${editedNote.id}`, {
+            const res = await fetch(`${server}/api/notes/update/${editedNote.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
@@ -112,7 +112,7 @@ const NoteState = (props) => {
     // Deleting note both from database and frontend
     const deleteNote = async (id) => {
         try {
-            const res = await fetch(`${host}/api/notes/delete/${id}`, {
+            const res = await fetch(`${server}/api/notes/delete/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json'
