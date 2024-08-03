@@ -62,11 +62,13 @@ const postLogin = async (req, res) => {
             return res.status(401).send('Invalid credentials');
         };
         const token = jwt.sign({ id: isUserExist._id }, process.env.SECRET_KEY, {
-            expiresIn: "7d"
+            expiresIn: "30d"
         });
         res.cookie('authToken', token, {
+            maxAge: 30 * 24 * 60 * 60 * 1000,
             httpOnly: true,
-            maxAge: 10080 * 1000
+            sameSite: 'none',
+            secure: true
         });
         res.status(200).send('User logged in succesfully')
     } catch (error) {
@@ -89,7 +91,10 @@ const getUser = async (req, res) => {
 // Logging out user
 const logout = async (req, res) => {
     try {
-        res.clearCookie('authToken');
+        res.clearCookie('authToken', {
+            sameSite: 'none',
+            secure: true
+        });
         res.status(200).send('User logged out succesfully');
     } catch (error) {
         res.status(500).send(error.message);
@@ -129,8 +134,10 @@ const identifyUser = async (req, res) => {
             expiresIn: 60 * 2
         });
         res.cookie('resetToken', token, {
+            maxAge: 60000 * 2,
             httpOnly: true,
-            maxAge: 60000 * 2
+            sameSite: 'none',
+            secure: true
         });
         res.status(200).send('User identified');
     } catch (error) {
@@ -151,7 +158,10 @@ const resetPassword = async (req, res) => {
         const hash = bcrypt.hashSync(req.body.password, salt);
         // updateOne doesn't return object whereas findOneAndUpdate/findByIdAndUpdate returns updated object
         await User.updateOne({ _id: id }, { $set: { password: hash } });
-        res.clearCookie('resetToken');
+        res.clearCookie('resetToken', {
+            sameSite: 'none',
+            secure: true
+        });
         res.status(200).send('Password reset successful');
     } catch (error) {
         console.log(error);
