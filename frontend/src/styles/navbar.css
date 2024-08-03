@@ -1,14 +1,16 @@
 /* Addind style for Navbar */
-.nav-container{
+.nav-container {
     position: sticky;
     top: 0;
     left: 0;
     z-index: 1;
 }
+
 .nav-heading {
     display: none;
     text-align: center;
     color: blue;
+    padding-top: 10px;
 }
 
 .fa-bars {
@@ -20,6 +22,7 @@
     z-index: 2;
     visibility: hidden;
 }
+
 .navbar .fa-circle-xmark {
     font-size: 25px;
     cursor: pointer;
@@ -52,22 +55,25 @@
 
 /* Fixing navbar for small devices */
 @media screen and (max-width: 570px) {
-    .nav-container{
+    .nav-container {
         position: static;
     }
-    .nav-heading{
+
+    .nav-heading {
         display: block;
     }
-    .fa-bars{
+
+    .fa-bars {
         visibility: visible;
     }
-    .navbar .fa-circle-xmark{
+
+    .navbar .fa-circle-xmark {
         visibility: visible;
     }
-    
+
     .navbar {
         width: 0;
-        height: 100vh;
+        height: 100dvh;
         background-color: rgb(151, 88, 211);
         color: white;
         position: fixed;
@@ -77,21 +83,23 @@
         overflow: auto;
         transition: all 0.4s;
     }
-    .w40{
-        width: 40vw;
+
+    .w70 {
+        width: 70vw;
     }
 
     .nav {
         display: block;
         margin: 15px 0;
         padding: 0;
+        margin-top: 35px;
     }
 
     .nav-item {
         margin: 0;
         padding-left: 30px;
         list-style: none;
-        line-height: 40px;
+        line-height: 50px;
         border-bottom: 1px solid rgb(186, 169, 169);
     }
 }

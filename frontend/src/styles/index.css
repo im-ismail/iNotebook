@@ -16,9 +16,11 @@ code {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
+
 /* Styling home component */
-  /* Styling add note */
+/* Styling add note */
 .note-form {
   width: 80%;
   margin: 10px auto 30px auto;
@@ -27,26 +29,33 @@ code {
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
 }
+
 .note-form form {
   width: 500px;
   margin: 0 auto 10px auto;
 }
-.note-form form h2{
+
+.note-form form h2 {
   margin-bottom: 5px;
 }
-.note-form input, .note-form textarea{
+
+.note-form input,
+.note-form textarea {
   margin: 3px 0;
-  width: 90%;
+  width: 100%;
   padding: 10px 5%;
   border: 1px solid grey;
   border-radius: 4px;
 }
-input:focus,textarea:focus{
+
+input:focus,
+textarea:focus {
   outline: none;
   border-color: #1b74e4;
   box-shadow: 0 0 0 2px #e7f3ff;
 }
-.btn{
+
+.btn {
   cursor: pointer;
   width: 100%;
   background-color: rgb(104, 104, 252);
@@ -57,60 +66,71 @@ input:focus,textarea:focus{
   font-weight: bold;
   font-size: 16px;
 }
-  /* Add note end */
-  /* Notes start */
-.notes{
+
+/* Add note end */
+/* Notes start */
+.notes {
   width: 80%;
   margin: auto;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgba(9, 17, 41, 0.1);
 }
-.notes h2{
+
+.notes h2 {
   padding: 10px 20px;
 }
-.notes-container{
+
+.notes-container {
   width: 95%;
   margin: auto;
   padding: 10px;
   padding-bottom: 30px;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-gap: 10px;
+  grid-gap: 15px;
 }
-.note{
+
+.note {
   background-color: #f0f2f5;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(133, 132, 132, 0.1), 0 8px 16px rgba(49, 79, 62, 0.1);
+  box-shadow: 0 2px 2px rgba(133, 132, 132, 0.1), 0 4px 6px rgba(49, 79, 62, 0.1);
   display: flex;
   justify-content: space-between;
 }
-.fa-pen-to-square{
+
+.fa-pen-to-square {
   margin: 10px 0 10px 10px;
   color: #1b74e4;
   cursor: pointer;
 }
-.fa-trash{
+
+.fa-trash {
   margin: 10px 0 10px 10px;
   color: rgb(227, 16, 16);
   cursor: pointer;
 }
-.note-title,.note-desc{
+
+.note-title,
+.note-desc {
   margin: 5px 0;
 }
-  /* Notes end */
+
+/* Notes end */
 /* Home end */
 
 /* Responsive design for mobile, tablet and big screen */
 @media only screen and (max-width: 700px) {
-  .note-form{
+  .note-form {
     width: 90%;
   }
-  .notes-container{
+
+  .notes-container {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
-  .notes{
+
+  .notes {
     width: 90%;
   }
 }
@@ -119,14 +139,18 @@ input:focus,textarea:focus{
   .nav-item {
     margin: 0 10px;
   }
+
   .note-form {
     width: 95%;
   }
+
   .note-form form {
     width: 90%;
   }
-  .notes{
+
+  .notes {
     width: 95%;
   }
 }
+
 /* Responsive end */

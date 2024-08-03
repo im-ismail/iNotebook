@@ -8,7 +8,7 @@ const Navbar = () => {
 
     const sidemenu = useRef();
     const toggleSidemenu = (e) => {
-        sidemenu.current.classList.toggle('w40');
+        sidemenu.current.classList.toggle('w70');
     };
 
     return (
