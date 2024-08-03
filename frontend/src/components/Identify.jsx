@@ -21,7 +21,7 @@ const Identify = ({ showAlert }) => {
     const identifyUser = async (e) => {
         e.preventDefault();
         try {
-            const res = await fetch(`http://localhost:5000/api/user/identify`, {
+            const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/user/identify`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

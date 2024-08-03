@@ -22,7 +22,7 @@ const Home = ({ showAlert }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = 'http://localhost:5000/api/user/register';
+			const url = `${process.env.REACT_APP_SERVER_URL}/api/user/register`;
 			const res = await fetch(url, {
 				method: 'POST',
 				headers: {

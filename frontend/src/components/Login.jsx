@@ -23,7 +23,7 @@ const Home = ({ showAlert }) => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const url = 'http://localhost:5000/api/user/login';
+      const url = `${process.env.REACT_APP_SERVER_URL}/api/user/login`;
       const res = await fetch(url, {
         method: 'POST',
         headers: {

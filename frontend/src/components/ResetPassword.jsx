@@ -24,7 +24,7 @@ const ResetPassword = ({ showAlert }) => {
             return showAlert("Password doesn't match", "warning");
         };
         try {
-            const res = await fetch(`http://localhost:5000/api/user/reset-password`, {
+            const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/user/reset-password`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
